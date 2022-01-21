@@ -25,4 +25,22 @@ public class CompositorServiceImpl implements ICompositorService{
 		
 	}
 
+	@Override
+	public void borrarCompositor(Integer id) {
+		// TODO Auto-generated method stub
+		this.compositorRepo.borrarCompositor(id);
+	}
+
+	@Override
+	public Compositor buscarCompositor(Integer id) {
+		// TODO Auto-generated method stub
+		return this.compositorRepo.buscarCompositor(id);
+	}
+
+	@Override
+	public Compositor buscarCompositorPorNombre(String nombre) {
+		// TODO Auto-generated method stub
+		return this.compositorRepo.buscarCompositorPorNombre(nombre);
+	}
+
 }

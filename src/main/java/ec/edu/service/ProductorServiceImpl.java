@@ -24,4 +24,22 @@ public class ProductorServiceImpl implements IProductorService{
 		this.productorRepo.actualizarProductor(productor);
 	}
 
+	@Override
+	public void borrarProductor(Integer id) {
+		// TODO Auto-generated method stub
+		this.productorRepo.borrarProductor(id);
+	}
+
+	@Override
+	public Productor buscarProductor(Integer id) {
+		// TODO Auto-generated method stub
+		return this.productorRepo.buscarProductor(id);
+	}
+
+	@Override
+	public Productor buscarProductorPorProductora(String productora) {
+		// TODO Auto-generated method stub
+		return this.productorRepo.buscarProductorPorProductora(productora);
+	}
+
 }

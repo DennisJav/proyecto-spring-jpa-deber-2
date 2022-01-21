@@ -24,4 +24,22 @@ public class EscritorServiceImpl implements IEscritorService{
 		this.escritorRepo.actualizarEscritor(escritor);
 	}
 
+	@Override
+	public void borrarEscritor(Integer id) {
+		// TODO Auto-generated method stub
+		this.escritorRepo.borrarEscritor(id);
+	}
+
+	@Override
+	public Escritor buscarEscritor(Integer id) {
+		// TODO Auto-generated method stub
+		return this.escritorRepo.buscarEscritor(id);
+	}
+
+	@Override
+	public Escritor buscarEscritorPorNovela(String novela) {
+		// TODO Auto-generated method stub
+		return this.escritorRepo.buscarEscritorPorNovela(novela);
+	}
+
 }

@@ -43,64 +43,112 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		//metodos de insercion
-		Artista a1 = new Artista();
-		a1.setNombre("Dennis");
-		a1.setApellido("Tapia");
-		this.artistaService.guardarArtista(a1);
-		
-		Compositor c1 = new Compositor();
-		c1.setNombre("Denis");
-		c1.setGenero_musical("Rock");
-		this.compositorService.guardadCompositor(c1);
-		
-		Escritor e1 = new Escritor();
-		e1.setNombre("Denis");
-		e1.setNovela("La guerra de los cielos");
-		this.escritorservice.guardarEscritor(e1);
-		
-		Musico m1 = new Musico();
-		m1.setMusica("Rock");
-		m1.setNombre("Dennis");
-		this.musicoService.guardarMusico(m1);
-		
-		Productor p1 = new Productor();
-		p1.setNombre("Dennis");
-		p1.setProductora("Epicentro");
-		this.productorService.guardarProductor(p1);
+//		//metodos de insercion
+//		Artista a1 = new Artista();
+//		a1.setNombre("Dennis");
+//		a1.setApellido("Tapia1");
+//		this.artistaService.guardarArtista(a1);
+//		
+//		Compositor c1 = new Compositor();
+//		c1.setNombre("Denis1");
+//		c1.setGenero_musical("Rock1");
+//		this.compositorService.guardadCompositor(c1);
+////		
+//		Escritor e1 = new Escritor();
+//		e1.setNombre("Denis");
+//		e1.setNovela("La guerra de los cielos1");
+//		this.escritorservice.guardarEscritor(e1);
+////		
+//		Musico m1 = new Musico();
+//		m1.setMusica("Rock1");
+//		m1.setNombre("Dennis");
+//		this.musicoService.guardarMusico(m1);
+////		
+//		Productor p1 = new Productor();
+//		p1.setNombre("Dennis");
+//		p1.setProductora("Epicentro1");
+//		this.productorService.guardarProductor(p1);
 		
 		
 		//metodos actualizar
 		
-		Artista a2 = new Artista();
-		a2.setId(5);
-		a2.setNombre("Javier");
-		a2.setApellido("Tapia");
-		this.artistaService.modificarArtista(a2);
+//		Artista a2 = new Artista();
+//		a2.setId(5);
+//		a2.setNombre("Javier");
+//		a2.setApellido("Tapia");
+//		this.artistaService.modificarArtista(a2);
 		
-		Compositor c2 = new Compositor();
-		c2.setId(6);
-		c2.setNombre("Javier");
-		c2.setGenero_musical("Rock");
-		this.compositorService.modificarCompositor(c2);
+//		Compositor c2 = new Compositor();
+//		c2.setId(6);
+//		c2.setNombre("Javier");
+//		c2.setGenero_musical("Rock");
+//		this.compositorService.modificarCompositor(c2);
+//		
+//		Escritor e2 = new Escritor();
+//		c2.setId(9);
+//		e2.setNombre("Javier");
+//		e2.setNovela("La guerra de los cielos");
+//		this.escritorservice.modificarEscritor(e2);
+//		
+//		Musico m2 = new Musico();
+//		m2.setId(10);
+//		m2.setMusica("Rock");
+//		m2.setNombre("Javier");
+//		this.musicoService.modificarMusico(m2);
+//		
+//		Productor p2 = new Productor();
+//		p2.setId(11);
+//		p2.setNombre("Javier");
+//		p2.setProductora("Epicentro");
+//		this.productorService.modificarProductor(p2);
+//		
 		
-		Escritor e2 = new Escritor();
-		c2.setId(9);
-		e2.setNombre("Javier");
-		e2.setNovela("La guerra de los cielos");
-		this.escritorservice.modificarEscritor(e2);
+		//metodos de borrar
 		
-		Musico m2 = new Musico();
-		m2.setId(10);
-		m2.setMusica("Rock");
-		m2.setNombre("Javier");
-		this.musicoService.modificarMusico(m2);
+//		this.artistaService.borrar(36);
+//		
+//		this.compositorService.borrarCompositor(35);
+//		
+//		this.escritorservice.borrarEscritor(37);
+//		
+//		this.musicoService.borrarMusico(37);
+//		
+//		this.productorService.borrarProductor(36);
 		
-		Productor p2 = new Productor();
-		p2.setId(11);
-		p2.setNombre("Javier");
-		p2.setProductora("Epicentro");
-		this.productorService.modificarProductor(p2);
+		//metodos buscar
+		
+//		Artista art = this.artistaService.buscar(7);
+//		System.out.println(art);
+//	
+//		Compositor comp = this.compositorService.buscarCompositor(8);
+//		System.out.println(comp);
+//		
+//		Escritor es=this.escritorservice.buscarEscritor(9);
+//		System.out.println(es);
+//		
+//		Musico mu = this.musicoService.buscarMusico(10);
+//		System.out.println(mu);
+//		
+//		Productor pr= this.productorService.buscarProductor(11);
+//		System.out.println(pr);
+		
+		//metodos de busqueda por atributo JPQL
+		
+//		Artista art = this.artistaService.buscarPorApellido("Tapia1");
+//		System.out.println(art);
+////	
+//		Compositor comp = this.compositorService.buscarCompositorPorNombre("Denis1");
+//		System.out.println(comp);
+////		
+//		Escritor es=this.escritorservice.buscarEscritorPorNovela("La guerra de los cielos1");
+//		System.out.println(es);
+////		
+//		Musico mu = this.musicoService.buscarMusicoPorMusica("Rock1");
+//		System.out.println(mu);
+////		
+//		Productor pr= this.productorService.buscarProductorPorProductora("Epicentro1");
+//		System.out.println(pr);
+//		
 		
 		
 	}

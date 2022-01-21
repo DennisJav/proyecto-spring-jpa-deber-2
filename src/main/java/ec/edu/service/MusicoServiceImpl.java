@@ -25,4 +25,22 @@ public class MusicoServiceImpl implements IMusicoService{
 		this.musicoRepo.actualizarMusico(musico);
 	}
 
+	@Override
+	public void borrarMusico(Integer id) {
+		// TODO Auto-generated method stub
+		this.musicoRepo.borrarMusico(id);
+	}
+
+	@Override
+	public Musico buscarMusico(Integer id) {
+		// TODO Auto-generated method stub
+		return this.musicoRepo.buscarMusico(id);
+	}
+
+	@Override
+	public Musico buscarMusicoPorMusica(String musica) {
+		// TODO Auto-generated method stub
+		return this.musicoRepo.buscarMusicoPorMusica(musica);
+	}
+
 }

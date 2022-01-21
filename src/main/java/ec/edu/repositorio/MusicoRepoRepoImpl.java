@@ -2,6 +2,7 @@ package ec.edu.repositorio;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
@@ -25,6 +26,28 @@ public class MusicoRepoRepoImpl implements IMusicoRepo{
 	public void actualizarMusico(Musico musico) {
 		// TODO Auto-generated method stub
 		this.entityManager.merge(musico);
+	}
+
+	@Override
+	public void borrarMusico(Integer id) {
+		// TODO Auto-generated method stub
+		Musico musi=this.buscarMusico(id);
+		this.entityManager.remove(musi);
+	}
+
+	@Override
+	public Musico buscarMusico(Integer id) {
+		// TODO Auto-generated method stub
+		return this.entityManager.find(Musico.class, id);
+	}
+
+	@Override
+	public Musico buscarMusicoPorMusica(String musica) {
+		// TODO Auto-generated method stub
+		Query miQuery = this.entityManager.createQuery("select m from Musico m where m.musica = :valor");
+		miQuery.setParameter("valor", musica);
+		Musico musi=(Musico) miQuery.getSingleResult();		
+		return musi;
 	}
 
 }

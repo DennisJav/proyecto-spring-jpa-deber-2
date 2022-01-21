@@ -21,7 +21,25 @@ public class ArtistaServiceImpl implements IArtistaService{
 	@Override
 	public void modificarArtista(Artista artista) {
 		// TODO Auto-generated method stub
-		
+		this.artistaRepo.acctualizarArtista(artista);
+	}
+
+	@Override
+	public void borrar(Integer id) {
+		// TODO Auto-generated method stub
+		this.artistaRepo.borrarArtista(id);
+	}
+
+	@Override
+	public Artista buscar(Integer id) {
+		// TODO Auto-generated method stub
+		return this.artistaRepo.buscarArtista(id);
+	}
+
+	@Override
+	public Artista buscarPorApellido(String apellido) {
+		// TODO Auto-generated method stub
+		return this.artistaRepo.buscarPorApellido(apellido);
 	}
 
 }

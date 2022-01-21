@@ -3,7 +3,9 @@ package ec.edu.modelo;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -11,7 +13,8 @@ import javax.persistence.Table;
 public class Escritor {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = ("seq_escritor"))
+	@SequenceGenerator(name = "seq_escritor", sequenceName = "seq_escritor",allocationSize = 1)
 	@Column(name = "id")
 	private Integer id;
 	
