@@ -8,4 +8,6 @@ public interface ICompositorService {
 	void borrarCompositor(Integer id);
 	Compositor buscarCompositor(Integer id);
 	Compositor buscarCompositorPorNombre(String nombre);
+	Compositor buscarCompositorPorNombreTyped(String nombre);
+	Compositor buscarCompositorPorNombreNamed(String nombre);
 }

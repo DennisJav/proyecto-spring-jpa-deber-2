@@ -5,11 +5,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "compositor")
+//Declaracion Named
+@NamedQuery(name = "Compositor.buscarPorNombre", query = "select c from Compositor c where c.nombre = :valor")
+
 public class Compositor {
 	
 	@Id

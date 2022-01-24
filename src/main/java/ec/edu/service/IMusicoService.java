@@ -8,4 +8,6 @@ public interface IMusicoService {
 	void borrarMusico(Integer id);
 	Musico buscarMusico(Integer id);
 	Musico buscarMusicoPorMusica(String musica);
+	Musico buscarMusicoPorMusicaTyped(String musica);
+	Musico buscarMusicoPorMusicaNamed(String musica);
 }

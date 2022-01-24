@@ -8,4 +8,6 @@ public interface IArtistaService {
 	void borrar(Integer id);
 	Artista buscar(Integer id);
 	Artista buscarPorApellido(String apellido);
+	Artista buscarPorApellidoTyped(String apellido);
+	Artista buscarPorApellidoNamed(String apellido);
 }

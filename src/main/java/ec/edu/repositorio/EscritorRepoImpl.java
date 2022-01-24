@@ -3,6 +3,7 @@ package ec.edu.repositorio;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
@@ -32,7 +33,7 @@ public class EscritorRepoImpl implements IEscritorRepo {
 	@Override
 	public void borrarEscritor(Integer id) {
 		// TODO Auto-generated method stub
-		Escritor esc=this.buscarEscritor(id);
+		Escritor esc = this.buscarEscritor(id);
 		this.entityManager.remove(esc);
 	}
 
@@ -44,12 +45,30 @@ public class EscritorRepoImpl implements IEscritorRepo {
 
 	@Override
 	public Escritor buscarEscritorPorNovela(String novela) {
-		
+
 		Query miQuery = this.entityManager.createQuery("select e from Escritor e where e.novela = :valor");
 		miQuery.setParameter("valor", novela);
 		Escritor escr = (Escritor) miQuery.getSingleResult();
-		
+
 		return escr;
+	}
+
+	@Override
+	public Escritor buscarEscritorPorNovelaType(String novela) {
+
+		TypedQuery<Escritor> miTypedQuery = (TypedQuery<Escritor>) this.entityManager
+				.createQuery("select e from Escritor e where e.novela = :valor");
+		miTypedQuery.setParameter("valor", novela);
+
+		return miTypedQuery.getSingleResult();
+	}
+
+	@Override
+	public Escritor buscarEscritorPorNovelaNamed(String novela) {
+
+		Query miQuery = this.entityManager.createNamedQuery("Escritor.buscarPorNovela");
+		miQuery.setParameter("valor", novela);
+		return (Escritor) miQuery.getSingleResult();
 	}
 
 }

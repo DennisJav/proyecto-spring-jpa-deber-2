@@ -42,4 +42,16 @@ public class ArtistaServiceImpl implements IArtistaService{
 		return this.artistaRepo.buscarPorApellido(apellido);
 	}
 
+	@Override
+	public Artista buscarPorApellidoTyped(String apellido) {
+		// TODO Auto-generated method stub
+		return this.artistaRepo.buscarArtistaPorApellidoType(apellido);
+	}
+
+	@Override
+	public Artista buscarPorApellidoNamed(String apellido) {
+		// TODO Auto-generated method stub
+		return this.artistaRepo.buscarArtistaPorApellidoNamed(apellido);
+	}
+
 }

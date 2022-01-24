@@ -43,4 +43,16 @@ public class MusicoServiceImpl implements IMusicoService{
 		return this.musicoRepo.buscarMusicoPorMusica(musica);
 	}
 
+	@Override
+	public Musico buscarMusicoPorMusicaTyped(String musica) {
+		// TODO Auto-generated method stub
+		return this.musicoRepo.buscarMusicoPorMusicaType(musica);
+	}
+
+	@Override
+	public Musico buscarMusicoPorMusicaNamed(String musica) {
+		// TODO Auto-generated method stub
+		return this.musicoRepo.buscarMusicoPorMusicaNamed(musica);
+	}
+
 }

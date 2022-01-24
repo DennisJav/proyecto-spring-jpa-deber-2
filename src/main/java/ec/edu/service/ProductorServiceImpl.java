@@ -42,4 +42,16 @@ public class ProductorServiceImpl implements IProductorService{
 		return this.productorRepo.buscarProductorPorProductora(productora);
 	}
 
+	@Override
+	public Productor buscarProductorPorProductoraTyped(String productora) {
+		// TODO Auto-generated method stub
+		return this.productorRepo.buscarProductorPorProductoraType(productora);
+	}
+
+	@Override
+	public Productor buscarProductorPorProductoraNamed(String productora) {
+		// TODO Auto-generated method stub
+		return this.productorRepo.buscarProductorPorProductoraNamed(productora);
+	}
+
 }

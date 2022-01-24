@@ -8,4 +8,6 @@ public interface IEscritorService {
 	void borrarEscritor(Integer id);
 	Escritor buscarEscritor(Integer id);
 	Escritor buscarEscritorPorNovela(String novela);
+	Escritor buscarEscritorPorNovelaTyped(String novela);
+	Escritor buscarEscritorPorNovelaNamed(String novela);
 }

@@ -5,11 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "artista")
+//Declaracion Named
+@NamedQuery(name = "Artista.buscarPorApellido", query = "select a from Artista a where a.apellido = :valor")
 
 public class Artista {
 

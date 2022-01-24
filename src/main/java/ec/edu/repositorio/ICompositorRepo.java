@@ -1,5 +1,6 @@
 package ec.edu.repositorio;
 
+
 import ec.edu.modelo.Compositor;
 
 public interface ICompositorRepo {
@@ -8,4 +9,6 @@ public interface ICompositorRepo {
 	void borrarCompositor(Integer id);
 	Compositor buscarCompositor(Integer id);
 	Compositor buscarCompositorPorNombre(String nombre);
+	Compositor buscarCompositorPorNombreType(String nombre);
+	Compositor buscarCompositorPorNombreNamed(String nombre);
 }

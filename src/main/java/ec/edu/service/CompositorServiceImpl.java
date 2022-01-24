@@ -43,4 +43,16 @@ public class CompositorServiceImpl implements ICompositorService{
 		return this.compositorRepo.buscarCompositorPorNombre(nombre);
 	}
 
+	@Override
+	public Compositor buscarCompositorPorNombreTyped(String nombre) {
+		// TODO Auto-generated method stub
+		return this.compositorRepo.buscarCompositorPorNombreType(nombre);
+	}
+
+	@Override
+	public Compositor buscarCompositorPorNombreNamed(String nombre) {
+		// TODO Auto-generated method stub
+		return this.compositorRepo.buscarCompositorPorNombreNamed(nombre);
+	}
+
 }

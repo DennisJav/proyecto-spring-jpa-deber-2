@@ -8,4 +8,6 @@ public interface IProductorService {
 	void borrarProductor(Integer id);
 	Productor buscarProductor(Integer id);
 	Productor buscarProductorPorProductora(String productora);
+	Productor buscarProductorPorProductoraTyped(String productora);
+	Productor buscarProductorPorProductoraNamed(String productora);
 }

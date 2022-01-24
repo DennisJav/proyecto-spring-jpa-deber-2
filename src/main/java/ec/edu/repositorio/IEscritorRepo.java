@@ -8,4 +8,8 @@ public interface IEscritorRepo {
 	void borrarEscritor(Integer id);
 	Escritor buscarEscritor(Integer id);
 	Escritor buscarEscritorPorNovela(String novela);
+	Escritor buscarEscritorPorNovelaType(String novela);
+	Escritor buscarEscritorPorNovelaNamed(String novela);
+	
+	
 }

@@ -3,20 +3,20 @@ package ec.edu.repositorio;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
 import ec.edu.modelo.Compositor;
 
-
 @Repository
 @Transactional
-public class CompositorRepoImpl implements ICompositorRepo{
+public class CompositorRepoImpl implements ICompositorRepo {
 
 	@PersistenceContext
 	private EntityManager entityManager;
-	
+
 	@Override
 	public void ingresarCompositor(Compositor compositor) {
 		// TODO Auto-generated method stub
@@ -47,11 +47,29 @@ public class CompositorRepoImpl implements ICompositorRepo{
 		// TODO Auto-generated method stub
 		Query miQuery = this.entityManager.createQuery("select c from Compositor c where c.nombre = :valor");
 		miQuery.setParameter("valor", nombre);
-		Compositor compo= (Compositor) miQuery.getSingleResult();
-		
-		
+		Compositor compo = (Compositor) miQuery.getSingleResult();
+
 		return compo;
 	}
 
-	
+	@Override
+	public Compositor buscarCompositorPorNombreType(String nombre) {
+		// TODO Auto-generated method stub
+
+		TypedQuery<Compositor> miTypedQuery = (TypedQuery<Compositor>) this.entityManager
+				.createQuery("select c from Compositor c where c.nombre = :valor");
+		miTypedQuery.setParameter("valor", nombre);
+
+		return miTypedQuery.getSingleResult();
+	}
+
+	@Override
+	public Compositor buscarCompositorPorNombreNamed(String nombre) {
+
+		Query miQuery = this.entityManager.createNamedQuery("Compositor.buscarPorNombre");
+		miQuery.setParameter("valor", nombre);
+		
+		return (Compositor) miQuery.getSingleResult();
+	}
+
 }

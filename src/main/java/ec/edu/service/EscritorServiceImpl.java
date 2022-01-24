@@ -42,4 +42,16 @@ public class EscritorServiceImpl implements IEscritorService{
 		return this.escritorRepo.buscarEscritorPorNovela(novela);
 	}
 
+	@Override
+	public Escritor buscarEscritorPorNovelaTyped(String novela) {
+		// TODO Auto-generated method stub
+		return this.escritorRepo.buscarEscritorPorNovelaType(novela);
+	}
+
+	@Override
+	public Escritor buscarEscritorPorNovelaNamed(String novela) {
+		// TODO Auto-generated method stub
+		return this.escritorRepo.buscarEscritorPorNovelaNamed(novela);
+	}
+
 }

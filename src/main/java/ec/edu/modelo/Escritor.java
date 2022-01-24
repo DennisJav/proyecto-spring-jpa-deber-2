@@ -5,11 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "escritor")
+//Declaracion Named
+@NamedQuery(name = "Escritor.buscarPorNovela", query = "select e from Escritor e where e.novela = :valor")
 public class Escritor {
 	
 	@Id

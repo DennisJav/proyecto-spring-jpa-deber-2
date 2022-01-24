@@ -149,6 +149,40 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		Productor pr= this.productorService.buscarProductorPorProductora("Epicentro1");
 //		System.out.println(pr);
 //		
+//		CONSULTAS TYPED
+		
+		Artista art = this.artistaService.buscarPorApellidoTyped("Tapia1");
+		System.out.println(art);
+//	
+		Compositor comp = this.compositorService.buscarCompositorPorNombreTyped("Denis1");
+		System.out.println(comp);
+//		
+		Escritor es=this.escritorservice.buscarEscritorPorNovelaTyped("La guerra de los cielos1");
+		System.out.println(es);
+//		
+		Musico mu = this.musicoService.buscarMusicoPorMusicaTyped("Rock1");
+		System.out.println(mu);
+		
+		Productor pr= this.productorService.buscarProductorPorProductoraTyped("Epicentro1");
+		System.out.println(pr);
+		
+//		CONSULTAS NAMED
+		
+//		Artista art = this.artistaService.buscarPorApellidoNamed("Tapia1");
+//		System.out.println(art);
+////	
+//		Compositor comp = this.compositorService.buscarCompositorPorNombreNamed("Denis1");
+//		System.out.println(comp);
+////		
+//		Escritor es=this.escritorservice.buscarEscritorPorNovelaNamed("La guerra de los cielos1");
+//		System.out.println(es);
+////		
+//		Musico mu = this.musicoService.buscarMusicoPorMusicaNamed("Rock1");
+//		System.out.println(mu);
+//		
+//		Productor pr= this.productorService.buscarProductorPorProductoraNamed("Epicentro1");
+//		System.out.println(pr);
+//		
 		
 		
 	}
