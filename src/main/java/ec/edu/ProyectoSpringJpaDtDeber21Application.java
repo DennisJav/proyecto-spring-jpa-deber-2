@@ -151,20 +151,20 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		
 //		CONSULTAS TYPED
 		
-		Artista art = this.artistaService.buscarPorApellidoTyped("Tapia1");
-		System.out.println(art);
-//	
-		Compositor comp = this.compositorService.buscarCompositorPorNombreTyped("Denis1");
-		System.out.println(comp);
+//		Artista art = this.artistaService.buscarPorApellidoTyped("Tapia1");
+//		System.out.println(art);
+////	
+//		Compositor comp = this.compositorService.buscarCompositorPorNombreTyped("Denis1");
+//		System.out.println(comp);
+////		
+//		Escritor es=this.escritorservice.buscarEscritorPorNovelaTyped("La guerra de los cielos1");
+//		System.out.println(es);
+////		
+//		Musico mu = this.musicoService.buscarMusicoPorMusicaTyped("Rock1");
+//		System.out.println(mu);
 //		
-		Escritor es=this.escritorservice.buscarEscritorPorNovelaTyped("La guerra de los cielos1");
-		System.out.println(es);
-//		
-		Musico mu = this.musicoService.buscarMusicoPorMusicaTyped("Rock1");
-		System.out.println(mu);
-		
-		Productor pr= this.productorService.buscarProductorPorProductoraTyped("Epicentro1");
-		System.out.println(pr);
+//		Productor pr= this.productorService.buscarProductorPorProductoraTyped("Epicentro1");
+//		System.out.println(pr);
 		
 //		CONSULTAS NAMED
 		
@@ -183,6 +183,9 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		Productor pr= this.productorService.buscarProductorPorProductoraNamed("Epicentro1");
 //		System.out.println(pr);
 //		
+		
+		
+//		TAREA 13
 		
 		
 	}
