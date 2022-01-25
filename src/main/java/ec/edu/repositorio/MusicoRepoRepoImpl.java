@@ -65,7 +65,13 @@ public class MusicoRepoRepoImpl implements IMusicoRepo {
 
 		Query miQuery = this.entityManager.createNamedQuery("Musico.buscarPorMusica");
 		miQuery.setParameter("valor", musica);
+		return (Musico) miQuery.getSingleResult();
+	}
 
+	@Override
+	public Musico buscarMusicoPorMusicaNativeQuery(String musica) {
+		Query miQuery = this.entityManager.createNativeQuery("select * from musico m where m.musica = :valor",Musico.class);
+		miQuery.setParameter("valor", musica);
 		return (Musico) miQuery.getSingleResult();
 	}
 

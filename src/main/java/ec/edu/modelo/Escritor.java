@@ -11,8 +11,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "escritor")
-//Declaracion Named
-@NamedQuery(name = "Escritor.buscarPorNovela", query = "select e from Escritor e where e.novela = :valor")
+////Declaracion Named
+//@NamedQuery(name = "Escritor.buscarPorNovela", query = "select e from Escritor e where e.novela = :valor")
 public class Escritor {
 	
 	@Id

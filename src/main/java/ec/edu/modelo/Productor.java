@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "productor")
 //Declaracion Named
-@NamedQuery(name = "Productor.buscarPorProductora", query = "select p from Productor p where p.productora = :valor")
+//@NamedQuery(name = "Productor.buscarPorProductora", query = "select p from Productor p where p.productora = :valor")
 
 public class Productor {
 	

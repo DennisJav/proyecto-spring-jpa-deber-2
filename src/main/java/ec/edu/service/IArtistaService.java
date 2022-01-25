@@ -10,4 +10,5 @@ public interface IArtistaService {
 	Artista buscarPorApellido(String apellido);
 	Artista buscarPorApellidoTyped(String apellido);
 	Artista buscarPorApellidoNamed(String apellido);
+	Artista buscarPorApellidoNativeQuery(String apellido);
 }

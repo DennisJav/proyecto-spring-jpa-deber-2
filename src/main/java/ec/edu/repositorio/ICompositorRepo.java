@@ -11,4 +11,5 @@ public interface ICompositorRepo {
 	Compositor buscarCompositorPorNombre(String nombre);
 	Compositor buscarCompositorPorNombreType(String nombre);
 	Compositor buscarCompositorPorNombreNamed(String nombre);
+	Compositor buscarCompositorPorNombreNativeQuery(String nombre);
 }

@@ -55,4 +55,10 @@ public class MusicoServiceImpl implements IMusicoService{
 		return this.musicoRepo.buscarMusicoPorMusicaNamed(musica);
 	}
 
+	@Override
+	public Musico buscarMusicoPorMusicaNativeQuery(String musica) {
+		// TODO Auto-generated method stub
+		return this.musicoRepo.buscarMusicoPorMusicaNativeQuery(musica);
+	}
+
 }

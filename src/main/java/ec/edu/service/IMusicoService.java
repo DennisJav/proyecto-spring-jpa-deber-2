@@ -10,4 +10,5 @@ public interface IMusicoService {
 	Musico buscarMusicoPorMusica(String musica);
 	Musico buscarMusicoPorMusicaTyped(String musica);
 	Musico buscarMusicoPorMusicaNamed(String musica);
+	Musico buscarMusicoPorMusicaNativeQuery(String musica);
 }

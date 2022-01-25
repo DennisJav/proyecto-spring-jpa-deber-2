@@ -10,5 +10,5 @@ public interface IMusicoRepo {
 	Musico buscarMusicoPorMusica(String musica);
 	Musico buscarMusicoPorMusicaType(String musica);
 	Musico buscarMusicoPorMusicaNamed(String musica);
-	
+	Musico buscarMusicoPorMusicaNativeQuery(String musica);
 }

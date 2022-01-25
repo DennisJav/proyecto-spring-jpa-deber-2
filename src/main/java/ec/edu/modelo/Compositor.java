@@ -11,8 +11,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "compositor")
-//Declaracion Named
-@NamedQuery(name = "Compositor.buscarPorNombre", query = "select c from Compositor c where c.nombre = :valor")
+////Declaracion Named
+//@NamedQuery(name = "Compositor.buscarPorNombre", query = "select c from Compositor c where c.nombre = :valor")
 
 public class Compositor {
 	

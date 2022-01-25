@@ -71,4 +71,11 @@ public class EscritorRepoImpl implements IEscritorRepo {
 		return (Escritor) miQuery.getSingleResult();
 	}
 
+	@Override
+	public Escritor buscarEscritorPorNovelaNativeQuery(String novela) {
+		Query miQuery = this.entityManager.createNativeQuery("select * from escritor e where e.novela = :valor",Escritor.class);
+		miQuery.setParameter("valor", novela);
+		return (Escritor) miQuery.getSingleResult();
+	}
+
 }

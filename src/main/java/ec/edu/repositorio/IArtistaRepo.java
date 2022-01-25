@@ -11,7 +11,7 @@ public interface IArtistaRepo {
 	Artista buscarPorApellido(String apellido);
 	Artista buscarArtistaPorApellidoType(String apellido);
 	Artista buscarArtistaPorApellidoNamed(String apellido);
-	
+	Artista buscarArtistaPorApellidoNativeQuery(String apellido);	
 	
 	
 }
