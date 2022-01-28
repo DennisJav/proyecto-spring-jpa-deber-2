@@ -72,4 +72,13 @@ public class CompositorRepoImpl implements ICompositorRepo {
 		return (Compositor) miQuery.getSingleResult();
 	}
 
+	@Override
+	public Compositor buscarCompositorPorNombreNativeQuery(String nombre) {
+		// TODO Auto-generated method stub
+		Query miQuery = this.entityManager.createNativeQuery("select * from compositor c where c.nombre = :valor",Compositor.class);
+		miQuery.setParameter("valor", nombre);
+		
+		return (Compositor) miQuery.getSingleResult();
+	}
+
 }

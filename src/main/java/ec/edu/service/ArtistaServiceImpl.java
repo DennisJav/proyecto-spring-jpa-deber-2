@@ -54,4 +54,10 @@ public class ArtistaServiceImpl implements IArtistaService{
 		return this.artistaRepo.buscarArtistaPorApellidoNamed(apellido);
 	}
 
+	@Override
+	public Artista buscarPorApellidoNativeQuery(String apellido) {
+		// TODO Auto-generated method stub
+		return this.artistaRepo.buscarArtistaPorApellidoNativeQuery(apellido);
+	}
+
 }

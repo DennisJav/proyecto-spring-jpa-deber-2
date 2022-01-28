@@ -10,4 +10,5 @@ public interface ICompositorService {
 	Compositor buscarCompositorPorNombre(String nombre);
 	Compositor buscarCompositorPorNombreTyped(String nombre);
 	Compositor buscarCompositorPorNombreNamed(String nombre);
+	Compositor buscarCompositorPorNombreNativeQuery(String nombre);
 }

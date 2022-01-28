@@ -10,4 +10,5 @@ public interface IEscritorService {
 	Escritor buscarEscritorPorNovela(String novela);
 	Escritor buscarEscritorPorNovelaTyped(String novela);
 	Escritor buscarEscritorPorNovelaNamed(String novela);
+	Escritor buscarEscritorPorNovelaNativeQuery(String novela);
 }

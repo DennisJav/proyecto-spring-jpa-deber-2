@@ -10,6 +10,7 @@ public interface IEscritorRepo {
 	Escritor buscarEscritorPorNovela(String novela);
 	Escritor buscarEscritorPorNovelaType(String novela);
 	Escritor buscarEscritorPorNovelaNamed(String novela);
+	Escritor buscarEscritorPorNovelaNativeQuery(String novela);
 	
 	
 }

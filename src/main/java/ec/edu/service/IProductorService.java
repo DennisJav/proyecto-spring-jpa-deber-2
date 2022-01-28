@@ -10,4 +10,5 @@ public interface IProductorService {
 	Productor buscarProductorPorProductora(String productora);
 	Productor buscarProductorPorProductoraTyped(String productora);
 	Productor buscarProductorPorProductoraNamed(String productora);
+	Productor buscarProductorPorProductoraNativeQuery(String productora);
 }

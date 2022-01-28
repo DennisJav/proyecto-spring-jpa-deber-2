@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "musico")
 //Declaracion Named
-@NamedQuery(name = "Musico.buscarPorMusica", query = "select m from Musico m where m.musica = :valor")
+//@NamedQuery(name = "Musico.buscarPorMusica", query = "select m from Musico m where m.musica = :valor")
 
 public class Musico {
 

@@ -54,4 +54,10 @@ public class ProductorServiceImpl implements IProductorService{
 		return this.productorRepo.buscarProductorPorProductoraNamed(productora);
 	}
 
+	@Override
+	public Productor buscarProductorPorProductoraNativeQuery(String productora) {
+		// TODO Auto-generated method stub
+		return this.productorRepo.buscarProductorPorProductoraNativeQuery(productora);
+	}
+
 }

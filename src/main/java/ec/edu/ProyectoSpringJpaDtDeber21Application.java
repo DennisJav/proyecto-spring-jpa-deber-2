@@ -102,7 +102,7 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		p2.setProductora("Epicentro");
 //		this.productorService.modificarProductor(p2);
 //		
-		
+		//
 		//metodos de borrar
 		
 //		this.artistaService.borrar(36);
@@ -187,7 +187,20 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 		
 //		TAREA 13
 		
+		Artista art = this.artistaService.buscarPorApellidoNativeQuery("Tapia1");
+		System.out.println(art);
+//	
+		Compositor comp = this.compositorService.buscarCompositorPorNombreNativeQuery("Denis1");
+		System.out.println(comp);
+//		
+		Escritor es=this.escritorservice.buscarEscritorPorNovelaNativeQuery("La guerra de los cielos1");
+		System.out.println(es);
+//		
+		Musico mu = this.musicoService.buscarMusicoPorMusicaNativeQuery("Rock1");
+		System.out.println(mu);
 		
+		Productor pr= this.productorService.buscarProductorPorProductoraNativeQuery("Epicentro1");
+		System.out.println(pr);
 	}
 
 }

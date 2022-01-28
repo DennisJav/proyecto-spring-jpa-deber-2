@@ -75,4 +75,13 @@ public class ArtistaRepoImpl implements IArtistaRepo {
 		return (Artista) miQuery.getSingleResult();
 	}
 
+	@Override
+	public Artista buscarArtistaPorApellidoNativeQuery(String apellido) {
+		// TODO Auto-generated method stub
+		Query miQuery = this.entityManager.createNativeQuery("select * from artista a where a.apellido = :valor",Artista.class);
+		miQuery.setParameter("valor", apellido);
+		
+		return (Artista) miQuery.getSingleResult();
+	}
+
 }
