@@ -102,7 +102,7 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		p2.setProductora("Epicentro");
 //		this.productorService.modificarProductor(p2);
 //		
-		
+		//
 		//metodos de borrar
 		
 //		this.artistaService.borrar(36);
