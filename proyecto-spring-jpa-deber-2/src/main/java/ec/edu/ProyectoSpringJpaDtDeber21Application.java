@@ -1,5 +1,8 @@
 package ec.edu;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -11,14 +14,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import ec.edu.modelo.Artista;
 import ec.edu.modelo.Compositor;
+import ec.edu.modelo.DetalleServicio;
 import ec.edu.modelo.Escritor;
 import ec.edu.modelo.Musico;
 import ec.edu.modelo.Productor;
+import ec.edu.modelo.Servicio;
 import ec.edu.service.IArtistaService;
 import ec.edu.service.ICompositorService;
 import ec.edu.service.IEscritorService;
 import ec.edu.service.IMusicoService;
 import ec.edu.service.IProductorService;
+import ec.edu.service.IServicioService;
 
 
 
@@ -42,6 +48,9 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 	
 	@Autowired
 	private IProductorService productorService;
+	
+	@Autowired
+	private IServicioService servicioService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoSpringJpaDtDeber21Application.class, args);
@@ -242,7 +251,34 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		}	
 //		
 		//Tarea 15
-		//prueba de subida
+		Servicio servicioTecnico = new Servicio();
+		servicioTecnico.setNumero("1-1111");
+		servicioTecnico.setNombre("Dennis");
+		LocalDateTime miFecha = LocalDateTime.now();
+		servicioTecnico.setFecha(miFecha);
+		
+		List<DetalleServicio> detalles =  new ArrayList<>();
+		
+		//equipo1
+		DetalleServicio d1 = new DetalleServicio();
+		d1.setEquipo("EPSON WF2830");
+		d1.setError("No enciende");
+		d1.setPrecio(new BigDecimal(22.5));
+		d1.setServicio(servicioTecnico);
+		
+		detalles.add(d1);
+		
+		//equipo2
+		DetalleServicio d2 = new DetalleServicio();
+		d2.setEquipo("CANON");
+		d2.setError("Reset");
+		d2.setPrecio(new BigDecimal(65.5));
+		d2.setServicio(servicioTecnico);
+		
+		detalles.add(d2);
+		servicioTecnico.setDetalles(detalles);
+		
+		this.servicioService.guardarServicio(servicioTecnico);
 		
 	}
 
