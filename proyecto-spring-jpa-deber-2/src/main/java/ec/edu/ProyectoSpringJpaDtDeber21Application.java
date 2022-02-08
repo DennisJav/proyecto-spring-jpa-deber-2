@@ -32,38 +32,35 @@ import ec.edu.service.IOficinaService;
 import ec.edu.service.IProductorService;
 import ec.edu.service.IServicioService;
 
-
-
 @SpringBootApplication
-public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
-
+public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner {
 
 	public static final Logger LOG = LoggerFactory.getLogger(ProyectoSpringJpaDtDeber21Application.class);
-	
+
 	@Autowired
 	private IArtistaService artistaService;
-	
+
 	@Autowired
 	private ICompositorService compositorService;
-	
+
 	@Autowired
 	private IEscritorService escritorservice;
-	
+
 	@Autowired
 	private IMusicoService musicoService;
-	
+
 	@Autowired
 	private IProductorService productorService;
-	
+
 	@Autowired
 	private IServicioService servicioService;
-	
+
 	@Autowired
 	private IOficinaService oficinaService;
-	
+
 	@Autowired
 	private IEgresadoService egresadoService;
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoSpringJpaDtDeber21Application.class, args);
 	}
@@ -96,16 +93,15 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		p1.setNombre("Dennis");
 //		p1.setProductora("Epicentro1");
 //		this.productorService.guardarProductor(p1);
-		
-		
-		//metodos actualizar
-		
+
+		// metodos actualizar
+
 //		Artista a2 = new Artista();
 //		a2.setId(5);
 //		a2.setNombre("Javier");
 //		a2.setApellido("Tapia");
 //		this.artistaService.modificarArtista(a2);
-		
+
 //		Compositor c2 = new Compositor();
 //		c2.setId(6);
 //		c2.setNombre("Javier");
@@ -131,8 +127,8 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		this.productorService.modificarProductor(p2);
 //		
 		//
-		//metodos de borrar
-		
+		// metodos de borrar
+
 //		this.artistaService.borrar(36);
 //		
 //		this.compositorService.borrarCompositor(35);
@@ -142,9 +138,9 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		this.musicoService.borrarMusico(37);
 //		
 //		this.productorService.borrarProductor(36);
-		
-		//metodos buscar
-		
+
+		// metodos buscar
+
 //		Artista art = this.artistaService.buscar(7);
 //		System.out.println(art);
 //	
@@ -159,9 +155,9 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		
 //		Productor pr= this.productorService.buscarProductor(11);
 //		System.out.println(pr);
-		
-		//metodos de busqueda por atributo JPQL
-		
+
+		// metodos de busqueda por atributo JPQL
+
 //		Artista art = this.artistaService.buscarPorApellido("Tapia1");
 //		System.out.println(art);
 ////	
@@ -178,7 +174,7 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		System.out.println(pr);
 //		
 //		CONSULTAS TYPED
-		
+
 //		Artista art = this.artistaService.buscarPorApellidoTyped("Tapia1");
 //		System.out.println(art);
 ////	
@@ -193,9 +189,9 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		
 //		Productor pr= this.productorService.buscarProductorPorProductoraTyped("Epicentro1");
 //		System.out.println(pr);
-		
+
 //		CONSULTAS NAMED
-		
+
 //		Artista art = this.artistaService.buscarPorApellidoNamed("Tapia1");
 //		System.out.println(art);
 ////	
@@ -211,8 +207,7 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		Productor pr= this.productorService.buscarProductorPorProductoraNamed("Epicentro1");
 //		System.out.println(pr);
 //		
-		
-		
+
 //		TAREA 13
 //		
 //		Artista art = this.artistaService.buscarPorApellidoNativeQuery("Tapia1");
@@ -229,10 +224,9 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		
 //		Productor pr= this.productorService.buscarProductorPorProductoraNativeQuery("Epicentro1");
 //		System.out.println(pr);
-		
-		
+
 //		TAREA 14
-		
+
 ////		List<Guardia> listaGuardia = this.guardiaService.buscarPorApellidoCriteriaAPIOR("Tapia","JAVA2");
 ////		for(Guardia g: listaGuardia) {
 ////			LOG.info("ESTE ES EL GUARDIA: " + g);
@@ -291,43 +285,67 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		servicioTecnico.setDetalles(detalles);
 //		
 //		this.servicioService.guardarServicio(servicioTecnico);
+
+//		// Tarea 16
+//		
+////		Modelo 1
+//		
+//		Oficina oficina1 = new Oficina();
+//		oficina1.setNombre("Bufet 1");
+//		oficina1.setNumero("E1");
+//		oficina1.setPiso("1");
+//		
+//		Jefe jefe1 = new Jefe();
+//		jefe1.setNombre("Dennis");
+//		jefe1.setApellido("Tapia");
+//		jefe1.setDepartamento("Inges");
+//		
+//		jefe1.setOficina(oficina1);
+//		oficina1.setJefe(jefe1);
+//		this.oficinaService.guardarOficina(oficina1);
+//		
+//		
+//// 		Modelo 2
+//		
+//		Egresado egresado1 = new Egresado();
+//		egresado1.setNombre("Javier1");
+//		egresado1.setApellido("Tapia");
+//		egresado1.setFacultad("Ingenieria");
+//		
+//		Tesis tesis1 = new Tesis();
+//		tesis1.setAutor("Javier1");
+//		tesis1.setTitulo("Ingenieria de control");
+//		tesis1.setFacultad("Ingenieria");
+//		
+//		egresado1.setTesis(tesis1);
+//		tesis1.setEgresado(egresado1);
+//		this.egresadoService.guardarEgresado(egresado1);
+
+		// Tarea 17
+//
+
+		this.egresadoService.buscarPorNombreJoin("Javier1");
+		this.egresadoService.buscarPorNombreJoinLeft("Javier1");
+		this.egresadoService.buscarPorNombreJoinRight("Javier1");
+		this.egresadoService.buscarPorNombreWhere("Javier1");
 		
-		
-		
-		// Tarea 16
-		
-//		Modelo 1
-		
-		Oficina oficina1 = new Oficina();
-		oficina1.setNombre("Bufet 1");
-		oficina1.setNumero("E1");
-		oficina1.setPiso("1");
-		
-		Jefe jefe1 = new Jefe();
-		jefe1.setNombre("Dennis");
-		jefe1.setApellido("Tapia");
-		jefe1.setDepartamento("Inges");
-		
-		jefe1.setOficina(oficina1);
-		oficina1.setJefe(jefe1);
-		this.oficinaService.guardarOficina(oficina1);
-		
-		
-// 		Modelo 2
-		
-		Egresado egresado1 = new Egresado();
-		egresado1.setNombre("Dennis");
-		egresado1.setApellido("Tapia");
-		egresado1.setFacultad("Ingenieria");
-		
-		Tesis tesis1 = new Tesis();
-		tesis1.setAutor("Dennis");
-		tesis1.setTitulo("Ingenieria de control");
-		tesis1.setFacultad("Ingenieria");
-		
-		egresado1.setTesis(tesis1);
-		tesis1.setEgresado(egresado1);
-		this.egresadoService.guardarEgresado(egresado1);
+//		List<Egresado> egresado1 = this.egresadoService.buscarPorNombreJoin("Javier1");
+//		for (Egresado e : egresado1) {
+//			LOG.info("Egresado por join: " + e);
+//		}
+//		List<Egresado> egresado2 = this.egresadoService.buscarPorNombreJoinLeft("Dennis");
+//		for (Egresado e : egresado1) {
+//			LOG.info("Egresado por join left: " + egresado2.toString());
+//		}
+//		List<Egresado> egresado3 = this.egresadoService.buscarPorNombreJoinRight("Dennis");
+//		for (Egresado e : egresado1) {
+//			LOG.info("Egresado por join right: " + egresado3.toString());
+//		}
+//		List<Egresado> egresado4 = this.egresadoService.buscarPorNombreWhere("Dennis");
+//		for (Egresado e : egresado1) {
+//			LOG.info("Egresado por where: " + egresado4.toString());
+//		}
+
 	}
 
 }
