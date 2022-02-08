@@ -15,14 +15,20 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import ec.edu.modelo.Artista;
 import ec.edu.modelo.Compositor;
 import ec.edu.modelo.DetalleServicio;
+import ec.edu.modelo.Egresado;
 import ec.edu.modelo.Escritor;
+import ec.edu.modelo.Jefe;
 import ec.edu.modelo.Musico;
+import ec.edu.modelo.Oficina;
 import ec.edu.modelo.Productor;
 import ec.edu.modelo.Servicio;
+import ec.edu.modelo.Tesis;
 import ec.edu.service.IArtistaService;
 import ec.edu.service.ICompositorService;
+import ec.edu.service.IEgresadoService;
 import ec.edu.service.IEscritorService;
 import ec.edu.service.IMusicoService;
+import ec.edu.service.IOficinaService;
 import ec.edu.service.IProductorService;
 import ec.edu.service.IServicioService;
 
@@ -51,6 +57,12 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 	
 	@Autowired
 	private IServicioService servicioService;
+	
+	@Autowired
+	private IOficinaService oficinaService;
+	
+	@Autowired
+	private IEgresadoService egresadoService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoSpringJpaDtDeber21Application.class, args);
@@ -250,36 +262,72 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //			LOG.info("Este es el resultado de busqueda: "+p);
 //		}	
 //		
-		//Tarea 15
-		Servicio servicioTecnico = new Servicio();
-		servicioTecnico.setNumero("1-1111");
-		servicioTecnico.setNombre("Dennis");
-		LocalDateTime miFecha = LocalDateTime.now();
-		servicioTecnico.setFecha(miFecha);
+//		//Tarea 15
+//		Servicio servicioTecnico = new Servicio();
+//		servicioTecnico.setNumero("1-1111");
+//		servicioTecnico.setNombre("Dennis");
+//		LocalDateTime miFecha = LocalDateTime.now();
+//		servicioTecnico.setFecha(miFecha);
+//		
+//		List<DetalleServicio> detalles =  new ArrayList<>();
+//		
+//		//equipo1
+//		DetalleServicio d1 = new DetalleServicio();
+//		d1.setEquipo("EPSON WF2830");
+//		d1.setError("No enciende");
+//		d1.setPrecio(new BigDecimal(22.5));
+//		d1.setServicio(servicioTecnico);
+//		
+//		detalles.add(d1);
+//		
+//		//equipo2
+//		DetalleServicio d2 = new DetalleServicio();
+//		d2.setEquipo("CANON");
+//		d2.setError("Reset");
+//		d2.setPrecio(new BigDecimal(65.5));
+//		d2.setServicio(servicioTecnico);
+//		
+//		detalles.add(d2);
+//		servicioTecnico.setDetalles(detalles);
+//		
+//		this.servicioService.guardarServicio(servicioTecnico);
 		
-		List<DetalleServicio> detalles =  new ArrayList<>();
 		
-		//equipo1
-		DetalleServicio d1 = new DetalleServicio();
-		d1.setEquipo("EPSON WF2830");
-		d1.setError("No enciende");
-		d1.setPrecio(new BigDecimal(22.5));
-		d1.setServicio(servicioTecnico);
 		
-		detalles.add(d1);
+		// Tarea 16
 		
-		//equipo2
-		DetalleServicio d2 = new DetalleServicio();
-		d2.setEquipo("CANON");
-		d2.setError("Reset");
-		d2.setPrecio(new BigDecimal(65.5));
-		d2.setServicio(servicioTecnico);
+//		Modelo 1
 		
-		detalles.add(d2);
-		servicioTecnico.setDetalles(detalles);
+		Oficina oficina1 = new Oficina();
+		oficina1.setNombre("Bufet 1");
+		oficina1.setNumero("E1");
+		oficina1.setPiso("1");
 		
-		this.servicioService.guardarServicio(servicioTecnico);
+		Jefe jefe1 = new Jefe();
+		jefe1.setNombre("Dennis");
+		jefe1.setApellido("Tapia");
+		jefe1.setDepartamento("Inges");
 		
+		jefe1.setOficina(oficina1);
+		oficina1.setJefe(jefe1);
+		this.oficinaService.guardarOficina(oficina1);
+		
+		
+// 		Modelo 2
+		
+		Egresado egresado1 = new Egresado();
+		egresado1.setNombre("Dennis");
+		egresado1.setApellido("Tapia");
+		egresado1.setFacultad("Ingenieria");
+		
+		Tesis tesis1 = new Tesis();
+		tesis1.setAutor("Dennis");
+		tesis1.setTitulo("Ingenieria de control");
+		tesis1.setFacultad("Ingenieria");
+		
+		egresado1.setTesis(tesis1);
+		tesis1.setEgresado(egresado1);
+		this.egresadoService.guardarEgresado(egresado1);
 	}
 
 }
