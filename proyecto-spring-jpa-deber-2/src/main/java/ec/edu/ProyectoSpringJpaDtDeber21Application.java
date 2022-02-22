@@ -328,23 +328,7 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner 
 		this.egresadoService.buscarPorNombreJoinLeft("Javier1");
 		this.egresadoService.buscarPorNombreJoinRight("Javier1");
 		this.egresadoService.buscarPorNombreWhere("Javier1");
-		
-//		List<Egresado> egresado1 = this.egresadoService.buscarPorNombreJoin("Javier1");
-//		for (Egresado e : egresado1) {
-//			LOG.info("Egresado por join: " + e);
-//		}
-//		List<Egresado> egresado2 = this.egresadoService.buscarPorNombreJoinLeft("Dennis");
-//		for (Egresado e : egresado1) {
-//			LOG.info("Egresado por join left: " + egresado2.toString());
-//		}
-//		List<Egresado> egresado3 = this.egresadoService.buscarPorNombreJoinRight("Dennis");
-//		for (Egresado e : egresado1) {
-//			LOG.info("Egresado por join right: " + egresado3.toString());
-//		}
-//		List<Egresado> egresado4 = this.egresadoService.buscarPorNombreWhere("Dennis");
-//		for (Egresado e : egresado1) {
-//			LOG.info("Egresado por where: " + egresado4.toString());
-//		}
+	
 
 	}
 
