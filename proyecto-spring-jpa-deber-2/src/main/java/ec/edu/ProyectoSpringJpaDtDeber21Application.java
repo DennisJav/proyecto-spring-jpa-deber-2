@@ -14,6 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import ec.edu.modelo.Artista;
 import ec.edu.modelo.Compositor;
+import ec.edu.modelo.Consumo;
 import ec.edu.modelo.DetalleServicio;
 import ec.edu.modelo.Egresado;
 import ec.edu.modelo.Escritor;
@@ -22,6 +23,7 @@ import ec.edu.modelo.Musico;
 import ec.edu.modelo.Oficina;
 import ec.edu.modelo.Productor;
 import ec.edu.modelo.Servicio;
+import ec.edu.modelo.TarjetaDeCredito;
 import ec.edu.modelo.Tesis;
 import ec.edu.service.IArtistaService;
 import ec.edu.service.ICompositorService;
@@ -31,6 +33,7 @@ import ec.edu.service.IMusicoService;
 import ec.edu.service.IOficinaService;
 import ec.edu.service.IProductorService;
 import ec.edu.service.IServicioService;
+import ec.edu.service.ITarjetaDeCreditoService;
 
 @SpringBootApplication
 public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner {
@@ -60,6 +63,9 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner 
 
 	@Autowired
 	private IEgresadoService egresadoService;
+	
+	@Autowired
+	private ITarjetaDeCreditoService tarjetaService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoSpringJpaDtDeber21Application.class, args);
@@ -322,14 +328,53 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner 
 //		this.egresadoService.guardarEgresado(egresado1);
 
 		// Tarea 17
+////
 //
-
-		this.egresadoService.buscarPorNombreJoin("Javier1");
-		this.egresadoService.buscarPorNombreJoinLeft("Javier1");
-		this.egresadoService.buscarPorNombreJoinRight("Javier1");
-		this.egresadoService.buscarPorNombreWhere("Javier1");
+//		this.egresadoService.buscarPorNombreJoin("Javier1");
+//		this.egresadoService.buscarPorNombreJoinLeft("Javier1");
+//		this.egresadoService.buscarPorNombreJoinRight("Javier1");
+//		this.egresadoService.buscarPorNombreWhere("Javier1");
 	
 
+		//TAREA 21
+		
+		TarjetaDeCredito tarjeta1 = new TarjetaDeCredito();
+//		tarjeta1.setCedulaPropietario("1715078984");
+//		tarjeta1.setCupo(new BigDecimal(1000));
+//		tarjeta1.setNumeroTarjeta("111");
+//		
+//		this.tarjetaService.guardarTarjeta(tarjeta1);
+//		
+		TarjetaDeCredito tarjeta2 = new TarjetaDeCredito();
+		tarjeta2.setCedulaPropietario("1000100010");
+		tarjeta2.setCupo(new BigDecimal(1000));
+		tarjeta2.setNumeroTarjeta("222");
+//		
+//		this.tarjetaService.guardarTarjeta(tarjeta2);
+//		
+//		
+//		TarjetaDeCredito tarjeta = this.tarjetaService.buscaTarjetaPorNumero("123");
+//		System.out.println("tarjeta: "+tarjeta);
+//		
+		//Consumo 1
+
+		LocalDateTime fechaCompra = LocalDateTime.now();
+		Consumo c1 = new Consumo();
+		c1.setValorConsumo(new BigDecimal(100));
+		c1.setFechaConsumo(fechaCompra);
+		
+		this.tarjetaService.realizarCompra("123", c1);
+		
+		
+		
+
+//		
+		
+		
+		
+		
+		
+		
 	}
 
 }
