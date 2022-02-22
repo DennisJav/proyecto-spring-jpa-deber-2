@@ -1,8 +1,11 @@
 package ec.edu.modelo;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -61,6 +64,8 @@ public class Egresado {
 		this.facultad = facultad;
 	}
 
+
+
 	public Tesis getTesis() {
 		return tesis;
 	}
@@ -72,8 +77,10 @@ public class Egresado {
 	@Override
 	public String toString() {
 		return "Egresado [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", facultad=" + facultad
-				+ ", tesis=" + tesis + "]";
+				+"]";
 	}
+
+	
 	
 	
 }

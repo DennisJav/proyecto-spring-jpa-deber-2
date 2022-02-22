@@ -105,10 +105,12 @@ public class Tesis {
 
 	@Override
 	public String toString() {
-		return "Tesis [id=" + id + ", titulo=" + titulo + ", facultad=" + facultad + ", autor=" + autor + ", egresado="
-				+ egresado + "]";
+		return "Tesis [id=" + id + ", titulo=" + titulo + ", facultad=" + facultad + ", autor=" + autor + "]";
 	}
-	
+
+
+
+
 	
 	
 	
