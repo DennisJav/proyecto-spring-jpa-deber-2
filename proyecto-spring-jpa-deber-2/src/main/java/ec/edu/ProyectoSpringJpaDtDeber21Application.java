@@ -337,19 +337,19 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner 
 	
 
 		//TAREA 21
-		
-		TarjetaDeCredito tarjeta1 = new TarjetaDeCredito();
-//		tarjeta1.setCedulaPropietario("1715078984");
-//		tarjeta1.setCupo(new BigDecimal(1000));
-//		tarjeta1.setNumeroTarjeta("111");
 //		
-//		this.tarjetaService.guardarTarjeta(tarjeta1);
-//		
-		TarjetaDeCredito tarjeta2 = new TarjetaDeCredito();
-		tarjeta2.setCedulaPropietario("1000100010");
-		tarjeta2.setCupo(new BigDecimal(1000));
-		tarjeta2.setNumeroTarjeta("222");
-//		
+//		TarjetaDeCredito tarjeta1 = new TarjetaDeCredito();
+////		tarjeta1.setCedulaPropietario("1715078984");
+////		tarjeta1.setCupo(new BigDecimal(1000));
+////		tarjeta1.setNumeroTarjeta("111");
+////		
+////		this.tarjetaService.guardarTarjeta(tarjeta1);
+////		
+//		TarjetaDeCredito tarjeta2 = new TarjetaDeCredito();
+//		tarjeta2.setCedulaPropietario("1000100010");
+//		tarjeta2.setCupo(new BigDecimal(1000));
+//		tarjeta2.setNumeroTarjeta("222");
+////		
 //		this.tarjetaService.guardarTarjeta(tarjeta2);
 //		
 //		
@@ -360,7 +360,7 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner 
 
 		LocalDateTime fechaCompra = LocalDateTime.now();
 		Consumo c1 = new Consumo();
-		c1.setValorConsumo(new BigDecimal(100));
+		c1.setValorConsumo(new BigDecimal(10));
 		c1.setFechaConsumo(fechaCompra);
 		
 		this.tarjetaService.realizarCompra("123", c1);

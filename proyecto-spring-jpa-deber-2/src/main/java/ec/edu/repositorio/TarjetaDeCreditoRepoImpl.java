@@ -36,19 +36,30 @@ public class TarjetaDeCreditoRepoImpl implements ITarjetaDeCreditoRepo {
 
 	}
 
+	@Override
+	@Transactional
+	public void actualizarTarjera2(TarjetaDeCredito tarjeta) {
+
+		this.entityManager.merge(tarjeta);
+
+//		try {
+//		throw new RuntimeException();
+//
+//		}catch(RuntimeException e) {
+//			LOG.error("ERROR REPO");
+//		}
+
+	}
 
 	@Override
 	public TarjetaDeCredito buscarTarjetaPorNumero(String numero) {
-		
-		
+
 		TypedQuery<TarjetaDeCredito> miTypedQuery = this.entityManager
 				.createQuery("select t from TarjetaDeCredito t where t.numeroTarjeta =:valor", TarjetaDeCredito.class);
 
 		miTypedQuery.setParameter("valor", numero);
-		
+
 		return miTypedQuery.getSingleResult();
 	}
-
-
 
 }
