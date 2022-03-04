@@ -15,6 +15,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import ec.edu.modelo.Artista;
 import ec.edu.modelo.Compositor;
 import ec.edu.modelo.Consumo;
+import ec.edu.modelo.CuentaBancaria;
+import ec.edu.modelo.CuentaHabiente;
 import ec.edu.modelo.DetalleServicio;
 import ec.edu.modelo.Egresado;
 import ec.edu.modelo.Escritor;
@@ -26,7 +28,10 @@ import ec.edu.modelo.Servicio;
 import ec.edu.modelo.TarjetaDeCredito;
 import ec.edu.modelo.Tesis;
 import ec.edu.service.IArtistaService;
+import ec.edu.service.ICajeroBancarioService;
 import ec.edu.service.ICompositorService;
+import ec.edu.service.ICuentaBancariaService;
+import ec.edu.service.ICuentaHabienteService;
 import ec.edu.service.IEgresadoService;
 import ec.edu.service.IEscritorService;
 import ec.edu.service.IMusicoService;
@@ -66,6 +71,16 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner 
 	
 	@Autowired
 	private ITarjetaDeCreditoService tarjetaService;
+	
+	@Autowired
+	private ICuentaBancariaService cuentaBancariaService;
+	
+	@Autowired
+	private ICuentaHabienteService cuentaHabienteService;
+	
+	@Autowired
+	private ICajeroBancarioService cajeroBancarioService;
+	
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoSpringJpaDtDeber21Application.class, args);
@@ -355,18 +370,69 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner 
 //		
 //		TarjetaDeCredito tarjeta = this.tarjetaService.buscaTarjetaPorNumero("123");
 //		System.out.println("tarjeta: "+tarjeta);
+//
+		
+		
+//		TAREA 22
+//		//Consumo 1
+//
+//		LocalDateTime fechaCompra = LocalDateTime.now();
+//		Consumo c1 = new Consumo();
+//		c1.setValorConsumo(new BigDecimal(10));
+//		c1.setFechaConsumo(fechaCompra);
 //		
-		//Consumo 1
+//		this.tarjetaService.realizarCompra("123", c1);
+		
+		
+//		TAREA 23
+		
+//		//cuenta 1
+		CuentaHabiente cuentaHabiente = new CuentaHabiente();
+		cuentaHabiente.setApellido("Tapia");
+		cuentaHabiente.setCedula("17213346861");
+		cuentaHabiente.setNombre("Dennis");
 
-		LocalDateTime fechaCompra = LocalDateTime.now();
-		Consumo c1 = new Consumo();
-		c1.setValorConsumo(new BigDecimal(10));
-		c1.setFechaConsumo(fechaCompra);
 		
-		this.tarjetaService.realizarCompra("123", c1);
+		CuentaBancaria cuentaBancaria = new CuentaBancaria();
+		cuentaBancaria.setNumeroCuenta("7");
+		cuentaBancaria.setSaldo(new BigDecimal("1000"));
+		cuentaBancaria.setTipo("AHORRO");
+		cuentaBancaria.setCuentaHabiente(cuentaHabiente);
+		
+		List<CuentaBancaria> cuentas = new ArrayList<>();
+		cuentas.add(cuentaBancaria);
+		cuentaHabiente.setCuentaBancarias(cuentas);
+		this.cuentaHabienteService.insertarCuentaHabiente(cuentaHabiente);
+////		
+////		//cuenta 2
+		CuentaHabiente cuentaHabiente2 = new CuentaHabiente();
+		cuentaHabiente2.setApellido("Ortiz");
+		cuentaHabiente2.setCedula("1726223223");
+		cuentaHabiente2.setNombre("Javier");
+
+		CuentaBancaria cuentaBancaria2 = new CuentaBancaria();
+		cuentaBancaria2.setNumeroCuenta("8");
+		cuentaBancaria2.setSaldo(new BigDecimal("2000"));
+		cuentaBancaria2.setTipo("Corriente");
+		cuentaBancaria2.setCuentaHabiente(cuentaHabiente2);
 		
 		
-		
+		List<CuentaBancaria> cuenta = new ArrayList<>();
+		cuenta.add(cuentaBancaria2);
+		cuentaHabiente2.setCuentaBancarias(cuenta);
+		this.cuentaHabienteService.insertarCuentaHabiente(cuentaHabiente2);
+//		
+//		
+//		//Consultar por numero de cedula
+		List<CuentaBancaria> listBancarias = this.cajeroBancarioService.consultarCuentas("17213346861");
+		listBancarias.stream().forEach(c->LOG.info(c.toString()));
+		 //Retirar Dinero por numero de cuenta y el valor
+		this.cajeroBancarioService.retirarDinero("3", new BigDecimal("100"));
+		this.cajeroBancarioService.retirarDinero("4", new BigDecimal("30"));
+//		//Consultar el saldo
+		String numeroCuenta = "3";
+		LOG.info("El saldo de la cuenta: "+numeroCuenta +" es: " + this.cajeroBancarioService.consultarSaldo(numeroCuenta));
+//		
 
 //		
 		
