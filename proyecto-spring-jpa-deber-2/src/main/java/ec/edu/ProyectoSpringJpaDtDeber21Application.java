@@ -14,6 +14,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import ec.edu.modelo.Artista;
 import ec.edu.modelo.Compositor;
+import ec.edu.modelo.Consumo;
+import ec.edu.modelo.CuentaBancaria;
+import ec.edu.modelo.CuentaHabiente;
 import ec.edu.modelo.DetalleServicio;
 import ec.edu.modelo.Egresado;
 import ec.edu.modelo.Escritor;
@@ -22,48 +25,63 @@ import ec.edu.modelo.Musico;
 import ec.edu.modelo.Oficina;
 import ec.edu.modelo.Productor;
 import ec.edu.modelo.Servicio;
+import ec.edu.modelo.TarjetaDeCredito;
 import ec.edu.modelo.Tesis;
 import ec.edu.service.IArtistaService;
+import ec.edu.service.ICajeroBancarioService;
 import ec.edu.service.ICompositorService;
+import ec.edu.service.ICuentaBancariaService;
+import ec.edu.service.ICuentaHabienteService;
 import ec.edu.service.IEgresadoService;
 import ec.edu.service.IEscritorService;
 import ec.edu.service.IMusicoService;
 import ec.edu.service.IOficinaService;
 import ec.edu.service.IProductorService;
 import ec.edu.service.IServicioService;
-
-
+import ec.edu.service.ITarjetaDeCreditoService;
 
 @SpringBootApplication
-public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
-
+public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner {
 
 	public static final Logger LOG = LoggerFactory.getLogger(ProyectoSpringJpaDtDeber21Application.class);
-	
+
 	@Autowired
 	private IArtistaService artistaService;
-	
+
 	@Autowired
 	private ICompositorService compositorService;
-	
+
 	@Autowired
 	private IEscritorService escritorservice;
-	
+
 	@Autowired
 	private IMusicoService musicoService;
-	
+
 	@Autowired
 	private IProductorService productorService;
-	
+
 	@Autowired
 	private IServicioService servicioService;
-	
+
 	@Autowired
 	private IOficinaService oficinaService;
-	
+
 	@Autowired
 	private IEgresadoService egresadoService;
 	
+	@Autowired
+	private ITarjetaDeCreditoService tarjetaService;
+	
+	@Autowired
+	private ICuentaBancariaService cuentaBancariaService;
+	
+	@Autowired
+	private ICuentaHabienteService cuentaHabienteService;
+	
+	@Autowired
+	private ICajeroBancarioService cajeroBancarioService;
+	
+
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoSpringJpaDtDeber21Application.class, args);
 	}
@@ -96,16 +114,15 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		p1.setNombre("Dennis");
 //		p1.setProductora("Epicentro1");
 //		this.productorService.guardarProductor(p1);
-		
-		
-		//metodos actualizar
-		
+
+		// metodos actualizar
+
 //		Artista a2 = new Artista();
 //		a2.setId(5);
 //		a2.setNombre("Javier");
 //		a2.setApellido("Tapia");
 //		this.artistaService.modificarArtista(a2);
-		
+
 //		Compositor c2 = new Compositor();
 //		c2.setId(6);
 //		c2.setNombre("Javier");
@@ -131,8 +148,8 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		this.productorService.modificarProductor(p2);
 //		
 		//
-		//metodos de borrar
-		
+		// metodos de borrar
+
 //		this.artistaService.borrar(36);
 //		
 //		this.compositorService.borrarCompositor(35);
@@ -142,9 +159,9 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		this.musicoService.borrarMusico(37);
 //		
 //		this.productorService.borrarProductor(36);
-		
-		//metodos buscar
-		
+
+		// metodos buscar
+
 //		Artista art = this.artistaService.buscar(7);
 //		System.out.println(art);
 //	
@@ -159,9 +176,9 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		
 //		Productor pr= this.productorService.buscarProductor(11);
 //		System.out.println(pr);
-		
-		//metodos de busqueda por atributo JPQL
-		
+
+		// metodos de busqueda por atributo JPQL
+
 //		Artista art = this.artistaService.buscarPorApellido("Tapia1");
 //		System.out.println(art);
 ////	
@@ -178,7 +195,7 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		System.out.println(pr);
 //		
 //		CONSULTAS TYPED
-		
+
 //		Artista art = this.artistaService.buscarPorApellidoTyped("Tapia1");
 //		System.out.println(art);
 ////	
@@ -193,9 +210,9 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		
 //		Productor pr= this.productorService.buscarProductorPorProductoraTyped("Epicentro1");
 //		System.out.println(pr);
-		
+
 //		CONSULTAS NAMED
-		
+
 //		Artista art = this.artistaService.buscarPorApellidoNamed("Tapia1");
 //		System.out.println(art);
 ////	
@@ -211,8 +228,7 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		Productor pr= this.productorService.buscarProductorPorProductoraNamed("Epicentro1");
 //		System.out.println(pr);
 //		
-		
-		
+
 //		TAREA 13
 //		
 //		Artista art = this.artistaService.buscarPorApellidoNativeQuery("Tapia1");
@@ -229,10 +245,9 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		
 //		Productor pr= this.productorService.buscarProductorPorProductoraNativeQuery("Epicentro1");
 //		System.out.println(pr);
-		
-		
+
 //		TAREA 14
-		
+
 ////		List<Guardia> listaGuardia = this.guardiaService.buscarPorApellidoCriteriaAPIOR("Tapia","JAVA2");
 ////		for(Guardia g: listaGuardia) {
 ////			LOG.info("ESTE ES EL GUARDIA: " + g);
@@ -291,43 +306,141 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner{
 //		servicioTecnico.setDetalles(detalles);
 //		
 //		this.servicioService.guardarServicio(servicioTecnico);
+
+//		// Tarea 16
+//		
+////		Modelo 1
+//		
+//		Oficina oficina1 = new Oficina();
+//		oficina1.setNombre("Bufet 1");
+//		oficina1.setNumero("E1");
+//		oficina1.setPiso("1");
+//		
+//		Jefe jefe1 = new Jefe();
+//		jefe1.setNombre("Dennis");
+//		jefe1.setApellido("Tapia");
+//		jefe1.setDepartamento("Inges");
+//		
+//		jefe1.setOficina(oficina1);
+//		oficina1.setJefe(jefe1);
+//		this.oficinaService.guardarOficina(oficina1);
+//		
+//		
+//// 		Modelo 2
+//		
+//		Egresado egresado1 = new Egresado();
+//		egresado1.setNombre("Javier1");
+//		egresado1.setApellido("Tapia");
+//		egresado1.setFacultad("Ingenieria");
+//		
+//		Tesis tesis1 = new Tesis();
+//		tesis1.setAutor("Javier1");
+//		tesis1.setTitulo("Ingenieria de control");
+//		tesis1.setFacultad("Ingenieria");
+//		
+//		egresado1.setTesis(tesis1);
+//		tesis1.setEgresado(egresado1);
+//		this.egresadoService.guardarEgresado(egresado1);
+
+		// Tarea 17
+////
+//
+//		this.egresadoService.buscarPorNombreJoin("Javier1");
+//		this.egresadoService.buscarPorNombreJoinLeft("Javier1");
+//		this.egresadoService.buscarPorNombreJoinRight("Javier1");
+//		this.egresadoService.buscarPorNombreWhere("Javier1");
+	
+
+		//TAREA 21
+//		
+//		TarjetaDeCredito tarjeta1 = new TarjetaDeCredito();
+////		tarjeta1.setCedulaPropietario("1715078984");
+////		tarjeta1.setCupo(new BigDecimal(1000));
+////		tarjeta1.setNumeroTarjeta("111");
+////		
+////		this.tarjetaService.guardarTarjeta(tarjeta1);
+////		
+//		TarjetaDeCredito tarjeta2 = new TarjetaDeCredito();
+//		tarjeta2.setCedulaPropietario("1000100010");
+//		tarjeta2.setCupo(new BigDecimal(1000));
+//		tarjeta2.setNumeroTarjeta("222");
+////		
+//		this.tarjetaService.guardarTarjeta(tarjeta2);
+//		
+//		
+//		TarjetaDeCredito tarjeta = this.tarjetaService.buscaTarjetaPorNumero("123");
+//		System.out.println("tarjeta: "+tarjeta);
+//
+		
+		
+//		TAREA 22
+//		//Consumo 1
+//
+//		LocalDateTime fechaCompra = LocalDateTime.now();
+//		Consumo c1 = new Consumo();
+//		c1.setValorConsumo(new BigDecimal(10));
+//		c1.setFechaConsumo(fechaCompra);
+//		
+//		this.tarjetaService.realizarCompra("123", c1);
+		
+		
+//		TAREA 23
+		
+//		//cuenta 1
+		CuentaHabiente cuentaHabiente = new CuentaHabiente();
+		cuentaHabiente.setApellido("Tapia");
+		cuentaHabiente.setCedula("17213346861");
+		cuentaHabiente.setNombre("Dennis");
+
+		
+		CuentaBancaria cuentaBancaria = new CuentaBancaria();
+		cuentaBancaria.setNumeroCuenta("7");
+		cuentaBancaria.setSaldo(new BigDecimal("1000"));
+		cuentaBancaria.setTipo("AHORRO");
+		cuentaBancaria.setCuentaHabiente(cuentaHabiente);
+		
+		List<CuentaBancaria> cuentas = new ArrayList<>();
+		cuentas.add(cuentaBancaria);
+		cuentaHabiente.setCuentaBancarias(cuentas);
+		this.cuentaHabienteService.insertarCuentaHabiente(cuentaHabiente);
+////		
+////		//cuenta 2
+		CuentaHabiente cuentaHabiente2 = new CuentaHabiente();
+		cuentaHabiente2.setApellido("Ortiz");
+		cuentaHabiente2.setCedula("1726223223");
+		cuentaHabiente2.setNombre("Javier");
+
+		CuentaBancaria cuentaBancaria2 = new CuentaBancaria();
+		cuentaBancaria2.setNumeroCuenta("8");
+		cuentaBancaria2.setSaldo(new BigDecimal("2000"));
+		cuentaBancaria2.setTipo("Corriente");
+		cuentaBancaria2.setCuentaHabiente(cuentaHabiente2);
+		
+		
+		List<CuentaBancaria> cuenta = new ArrayList<>();
+		cuenta.add(cuentaBancaria2);
+		cuentaHabiente2.setCuentaBancarias(cuenta);
+		this.cuentaHabienteService.insertarCuentaHabiente(cuentaHabiente2);
+//		
+//		
+//		//Consultar por numero de cedula
+		List<CuentaBancaria> listBancarias = this.cajeroBancarioService.consultarCuentas("17213346861");
+		listBancarias.stream().forEach(c->LOG.info(c.toString()));
+		 //Retirar Dinero por numero de cuenta y el valor
+		this.cajeroBancarioService.retirarDinero("3", new BigDecimal("100"));
+		this.cajeroBancarioService.retirarDinero("4", new BigDecimal("30"));
+//		//Consultar el saldo
+		String numeroCuenta = "3";
+		LOG.info("El saldo de la cuenta: "+numeroCuenta +" es: " + this.cajeroBancarioService.consultarSaldo(numeroCuenta));
+//		
+
+//		
 		
 		
 		
-		// Tarea 16
-		
-//		Modelo 1
-		
-		Oficina oficina1 = new Oficina();
-		oficina1.setNombre("Bufet 1");
-		oficina1.setNumero("E1");
-		oficina1.setPiso("1");
-		
-		Jefe jefe1 = new Jefe();
-		jefe1.setNombre("Dennis");
-		jefe1.setApellido("Tapia");
-		jefe1.setDepartamento("Inges");
-		
-		jefe1.setOficina(oficina1);
-		oficina1.setJefe(jefe1);
-		this.oficinaService.guardarOficina(oficina1);
 		
 		
-// 		Modelo 2
 		
-		Egresado egresado1 = new Egresado();
-		egresado1.setNombre("Dennis");
-		egresado1.setApellido("Tapia");
-		egresado1.setFacultad("Ingenieria");
-		
-		Tesis tesis1 = new Tesis();
-		tesis1.setAutor("Dennis");
-		tesis1.setTitulo("Ingenieria de control");
-		tesis1.setFacultad("Ingenieria");
-		
-		egresado1.setTesis(tesis1);
-		tesis1.setEgresado(egresado1);
-		this.egresadoService.guardarEgresado(egresado1);
 	}
 
 }
