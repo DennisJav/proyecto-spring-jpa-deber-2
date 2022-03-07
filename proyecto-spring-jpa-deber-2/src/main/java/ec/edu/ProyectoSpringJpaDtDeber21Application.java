@@ -2,6 +2,7 @@ package ec.edu;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import ec.edu.modelo.Artista;
+import ec.edu.modelo.Cliente;
 import ec.edu.modelo.Compositor;
 import ec.edu.modelo.Consumo;
 import ec.edu.modelo.CuentaBancaria;
@@ -21,19 +23,23 @@ import ec.edu.modelo.DetalleServicio;
 import ec.edu.modelo.Egresado;
 import ec.edu.modelo.Escritor;
 import ec.edu.modelo.Jefe;
+import ec.edu.modelo.Membresia;
 import ec.edu.modelo.Musico;
 import ec.edu.modelo.Oficina;
 import ec.edu.modelo.Productor;
 import ec.edu.modelo.Servicio;
 import ec.edu.modelo.TarjetaDeCredito;
 import ec.edu.modelo.Tesis;
+import ec.edu.service.IAdministradorGimnacioService;
 import ec.edu.service.IArtistaService;
 import ec.edu.service.ICajeroBancarioService;
+import ec.edu.service.IClienteService;
 import ec.edu.service.ICompositorService;
 import ec.edu.service.ICuentaBancariaService;
 import ec.edu.service.ICuentaHabienteService;
 import ec.edu.service.IEgresadoService;
 import ec.edu.service.IEscritorService;
+import ec.edu.service.IMembresiaService;
 import ec.edu.service.IMusicoService;
 import ec.edu.service.IOficinaService;
 import ec.edu.service.IProductorService;
@@ -80,6 +86,15 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner 
 	
 	@Autowired
 	private ICajeroBancarioService cajeroBancarioService;
+	
+	@Autowired
+	private IAdministradorGimnacioService administradorGimnasio;
+	
+	@Autowired
+	private IMembresiaService membresiaService;
+	
+	@Autowired
+	private IClienteService clienteService;
 	
 
 	public static void main(String[] args) {
@@ -384,58 +399,117 @@ public class ProyectoSpringJpaDtDeber21Application implements CommandLineRunner 
 //		this.tarjetaService.realizarCompra("123", c1);
 		
 		
-//		TAREA 23
-		
-//		//cuenta 1
-		CuentaHabiente cuentaHabiente = new CuentaHabiente();
-		cuentaHabiente.setApellido("Tapia");
-		cuentaHabiente.setCedula("17213346861");
-		cuentaHabiente.setNombre("Dennis");
-
-		
-		CuentaBancaria cuentaBancaria = new CuentaBancaria();
-		cuentaBancaria.setNumeroCuenta("7");
-		cuentaBancaria.setSaldo(new BigDecimal("1000"));
-		cuentaBancaria.setTipo("AHORRO");
-		cuentaBancaria.setCuentaHabiente(cuentaHabiente);
-		
-		List<CuentaBancaria> cuentas = new ArrayList<>();
-		cuentas.add(cuentaBancaria);
-		cuentaHabiente.setCuentaBancarias(cuentas);
-		this.cuentaHabienteService.insertarCuentaHabiente(cuentaHabiente);
+////		TAREA 23
+//		
+////		//cuenta 1
+//		CuentaHabiente cuentaHabiente = new CuentaHabiente();
+//		cuentaHabiente.setApellido("Tapia");
+//		cuentaHabiente.setCedula("17213346861");
+//		cuentaHabiente.setNombre("Dennis");
+//
+//		
+//		CuentaBancaria cuentaBancaria = new CuentaBancaria();
+//		cuentaBancaria.setNumeroCuenta("7");
+//		cuentaBancaria.setSaldo(new BigDecimal("1000"));
+//		cuentaBancaria.setTipo("AHORRO");
+//		cuentaBancaria.setCuentaHabiente(cuentaHabiente);
+//		
+//		List<CuentaBancaria> cuentas = new ArrayList<>();
+//		cuentas.add(cuentaBancaria);
+//		cuentaHabiente.setCuentaBancarias(cuentas);
+//		this.cuentaHabienteService.insertarCuentaHabiente(cuentaHabiente);
+//////		
+//////		//cuenta 2
+//		CuentaHabiente cuentaHabiente2 = new CuentaHabiente();
+//		cuentaHabiente2.setApellido("Ortiz");
+//		cuentaHabiente2.setCedula("1726223223");
+//		cuentaHabiente2.setNombre("Javier");
+//
+//		CuentaBancaria cuentaBancaria2 = new CuentaBancaria();
+//		cuentaBancaria2.setNumeroCuenta("8");
+//		cuentaBancaria2.setSaldo(new BigDecimal("2000"));
+//		cuentaBancaria2.setTipo("Corriente");
+//		cuentaBancaria2.setCuentaHabiente(cuentaHabiente2);
+//		
+//		
+//		List<CuentaBancaria> cuenta = new ArrayList<>();
+//		cuenta.add(cuentaBancaria2);
+//		cuentaHabiente2.setCuentaBancarias(cuenta);
+//		this.cuentaHabienteService.insertarCuentaHabiente(cuentaHabiente2);
 ////		
-////		//cuenta 2
-		CuentaHabiente cuentaHabiente2 = new CuentaHabiente();
-		cuentaHabiente2.setApellido("Ortiz");
-		cuentaHabiente2.setCedula("1726223223");
-		cuentaHabiente2.setNombre("Javier");
-
-		CuentaBancaria cuentaBancaria2 = new CuentaBancaria();
-		cuentaBancaria2.setNumeroCuenta("8");
-		cuentaBancaria2.setSaldo(new BigDecimal("2000"));
-		cuentaBancaria2.setTipo("Corriente");
-		cuentaBancaria2.setCuentaHabiente(cuentaHabiente2);
-		
-		
-		List<CuentaBancaria> cuenta = new ArrayList<>();
-		cuenta.add(cuentaBancaria2);
-		cuentaHabiente2.setCuentaBancarias(cuenta);
-		this.cuentaHabienteService.insertarCuentaHabiente(cuentaHabiente2);
-//		
-//		
-//		//Consultar por numero de cedula
-		List<CuentaBancaria> listBancarias = this.cajeroBancarioService.consultarCuentas("17213346861");
-		listBancarias.stream().forEach(c->LOG.info(c.toString()));
-		 //Retirar Dinero por numero de cuenta y el valor
-		this.cajeroBancarioService.retirarDinero("3", new BigDecimal("100"));
-		this.cajeroBancarioService.retirarDinero("4", new BigDecimal("30"));
-//		//Consultar el saldo
-		String numeroCuenta = "3";
-		LOG.info("El saldo de la cuenta: "+numeroCuenta +" es: " + this.cajeroBancarioService.consultarSaldo(numeroCuenta));
-//		
+////		
+////		//Consultar por numero de cedula
+//		List<CuentaBancaria> listBancarias = this.cajeroBancarioService.consultarCuentas("17213346861");
+//		listBancarias.stream().forEach(c->LOG.info(c.toString()));
+//		 //Retirar Dinero por numero de cuenta y el valor
+//		this.cajeroBancarioService.retirarDinero("3", new BigDecimal("100"));
+//		this.cajeroBancarioService.retirarDinero("4", new BigDecimal("30"));
+////		//Consultar el saldo
+//		String numeroCuenta = "3";
+//		LOG.info("El saldo de la cuenta: "+numeroCuenta +" es: " + this.cajeroBancarioService.consultarSaldo(numeroCuenta));
+////		
 
 //		
 		
+		//Tarea 24
+		
+		LocalDateTime miFecha = LocalDateTime.of(1996, Month.JANUARY, 16, 8, 00);
+
+		Cliente c1 = new Cliente();
+		c1.setNombre("Dennis");
+		c1.setApellido("Tapia");
+		c1.setCedula("172134686");
+		c1.setFechaNacimiento(miFecha);
+		c1.setEstado("N");
+
+		Cliente c2 = new Cliente();
+		c2.setNombre("Javier");
+		c2.setApellido("Ortiz");
+		c2.setCedula("1721322222");
+		c2.setFechaNacimiento(LocalDateTime.of(1996, Month.AUGUST, 22, 10, 45));
+		c2.setEstado("N");
+		
+		Cliente c3 = new Cliente();
+		c3.setNombre("Liz");
+		c3.setApellido("Peri");
+		c3.setCedula("1225551");
+		c3.setFechaNacimiento(LocalDateTime.of(2002, Month.JULY, 13, 13, 13));
+		c3.setEstado("N");
+
+		Cliente c4 = new Cliente();
+		c4.setNombre("juan");
+		c4.setApellido("Mela");
+		c4.setCedula("322231511");
+		c4.setFechaNacimiento(LocalDateTime.of(1993, Month.APRIL, 8, 20, 45));
+		c4.setEstado("N");
+
+		this.administradorGimnasio.guardarCliente(c1);
+		this.administradorGimnasio.guardarCliente(c2);
+		
+		this.administradorGimnasio.guardarCliente(c3);
+		this.administradorGimnasio.guardarCliente(c4);
+
+		
+		Membresia m1 = new Membresia();
+		m1.setCodigo("m1");
+		m1.setNombre("Membrecia Platinum");
+		m1.setValor(new BigDecimal(10));
+		m1.setVigencia(LocalDateTime.of(2023, Month.MARCH, 12, 0, 0));
+		m1.setCantidad(0);
+		
+		Membresia m2 = new Membresia();
+		m2.setCodigo("m2");
+		m2.setNombre("Membrecia Estandar");
+		m2.setValor(new BigDecimal(10));
+		m2.setVigencia(LocalDateTime.of(2022, Month.JULY, 12, 0, 0));
+		m2.setCantidad(0);
+
+		this.membresiaService.insertarMembresia(m1);
+		this.membresiaService.insertarMembresia(m2);
+
+		this.administradorGimnasio.pagarMembresia("172134686", "m1");
+		this.administradorGimnasio.pagarMembresia("1225551", "m1");
+		this.administradorGimnasio.pagarMembresia("322231511", "m2");
 		
 		
 		
